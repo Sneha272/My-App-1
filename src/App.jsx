@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import Test from './components/Test'
-import './App.css'
+import PostRequest from './components/PostRequest'
+import Navbar from './components/Navbar'
+import { Link } from 'react-router-dom'
+
 
 function App() {
   const [count, setCount] = useState(100)
@@ -15,22 +18,35 @@ function substract() {
   setCount(count - 1)
 }
   return (
-    <div className="App">
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={substract}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+    <div className="container-fluid">
+      <Navbar />
+      <div className="row justify-content-center">
+        {" "}
+        <Test parent={"app"} />
+        
+          <li className="nav-item">
+            <Link to={"/greeting/sujit"}>
+              {" "}
+              <a className="nav-link">Sujit</a>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to={"/greeting/junsume"}>
+              {" "}
+              <a className="nav-link">Junsume</a>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to={"/greeting/soumya"}>
+              {" "}
+              <a className="nav-link">Soumya</a>
+            </Link>
+          </li>
+       
+        {/* <PostRequest /> */}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    <Test parent={'app'}/>
     </div>
-  )
+  );
 }
 
 export default App
